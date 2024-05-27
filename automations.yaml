@@ -1,0 +1,144 @@
+- id: '1716835532872'
+  alias: lamp-nochnik
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.nochnik
+    from:
+    to:
+  condition: []
+  action:
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: 'ON'
+    then:
+    - service: light.turn_on
+      metadata: {}
+      data: {}
+      target:
+        entity_id: light.wled
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: 'OFF'
+    then:
+    - service: light.turn_off
+      target:
+        entity_id:
+        - light.wled
+      data: {}
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: orange
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 255
+        - 123
+        - 0
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: coral
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 255
+        - 193
+        - 122
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '6'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 255
+        - 255
+        - 255
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '5'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 218
+        - 189
+        - 169
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '7'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 112
+        - 112
+        - 255
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '8'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 236
+        - 106
+        - 175
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '9'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 255
+        - 71
+        - 221
+  - if:
+    - condition: state
+      entity_id: sensor.nochnik
+      state: '10'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id:
+        - light.wled
+      data:
+        rgb_color:
+        - 255
+        - 0
+        - 0
+  mode: single
